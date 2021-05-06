@@ -1,0 +1,15 @@
+f = open('26.txt')
+v,n = map(int,f.readline().split())
+a = sorted([int(f.readline()) for i in range(n)])
+b = []
+i = 0
+
+while sum(b) + a[i] <= v:
+    b.append(a[i])
+    i+=1
+
+while sum(b) -  b[-1] + a[i] <= v:
+    b[-1] = a[i]
+    i+=1
+
+print(len(b),b[-1])
