@@ -1,0 +1,19 @@
+path_a ='27a.txt'
+path_b ='27b.txt'
+
+m = [10000000000000]*3 
+def res(path):
+    sum = 0
+    with open(path, 'r') as file_obj:
+        n = int(file_obj.readline())
+        for i in file_obj:
+            x,y = map(int,i.split())
+            sum += max(x, y) 
+            k = abs(x - y) 
+            p = k % 3 
+            if k < m[p]:
+                m[p] = k 
+        if sum % 3 == 0: 
+            sum -= min(m[1],m[2])
+        return sum
+print(res(path_a),res(path_b))
