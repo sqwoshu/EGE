@@ -24,3 +24,15 @@ print(res(path_a),res(path_b))
 возможной. Гарантируется, что искомую сумму получить можно. 
 Программа  должна  напечатать  одно  число– максимально  возможную
 сумму, соответствующую условиям задачи.
+
+f = open('27_B.txt')
+n = int(f.readline())
+s = [int(i) for i in f.readline().split()]
+for i in range(n-1):
+    p = [int(i) for i in f.readline().split()]
+    tmp = [a+b for b in p for a in s]
+    fs = [0] * 117
+    for x in tmp:
+        fs[x%3] = max(fs[x%3],x)
+    s = [x for x in fs if x != 0]
+print(max(i for i in s if i % 3 != 0))
