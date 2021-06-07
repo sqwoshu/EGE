@@ -15,7 +15,7 @@ def f(x,y,p):
     if x + y >= 55 and p == 2: # p == позицию находим по условию
         return True
     else:
-        if x + y < 55 and p == 2: p == позицию находим по условию
+        if x + y < 55 and p == 2: # p == позицию находим по условию
             return False
     return f(x+1,y,p+1) or f(x*2,y,p+1) or f(x,y+1,p+1) or f(x,y*2,p+1)
 for s in range(1,50):
