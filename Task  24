@@ -1,0 +1,46 @@
+Задача 1:
+Определите максимальное количество идущих подряд нечётных цифр, расположенных в неубывающем порядке.
+
+f = open('24.txt')
+s = f.readline()
+count = 0
+m  = 0
+for i in range(len(s)):
+    if s[i] in '13579':
+        if count == 0:
+            count+=1
+            m = max(m,count)
+        elif s[i] >= s[i - 1]:
+            count += 1
+            m = max(m,count)
+        else:
+            count = 1
+    else:
+        count = 0
+print(m)        
+
+
+Задача 2:
+Определите максимальное количество идущих подряд символов, среди которых символ Z встречается не более одного раза.
+
+f = open('24.txt')
+s = f.readline()
+count = 0
+countZ = 0
+m = 0
+for i in range(len(s)):
+    if s[i] != 'Z':
+        count+=1
+        m = max(m,count)
+    else:
+        if countZ == 0:
+            count += 1
+            countZ = 1
+            index = i
+            m = max(m,count)
+        else:
+            if countZ == 1:
+                count = i - index
+                index = i
+                m = max(m,count)
+print(m)        
