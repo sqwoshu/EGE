@@ -40,7 +40,7 @@ print(max(i for i in s if i % 3 != 0))
 
 
 ------------------------ Сборник ------------------------------
-f = open('27_B.txt')
+f = open('27_A.txt')
 n = int(f.readline())
 s = 0
 t = 1000000
