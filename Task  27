@@ -36,3 +36,20 @@ for i in range(n-1):
         fs[x%3] = max(fs[x%3],x)
     s = [x for x in fs if x != 0]
 print(max(i for i in s if i % 3 != 0))
+
+
+
+------------------------ Сборник ------------------------------
+f = open('27_B.txt')
+n = int(f.readline())
+s = 0
+t = 1000000
+for line in f:
+    a,b = map(int, line.split())
+    s+=max(a,b)
+    if abs(a-b) % 31 != 0:
+        t = min(t,abs(a-b))
+if s % 31 == 0:
+    s -= t
+print(s)
+
